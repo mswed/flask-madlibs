@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/app.css">
+    <title>Home Page</title>
+</head>
+<body>
+<form class="story-form" action="/story">
+    <div class="row">
+        <div class="column">
+            <h1>Madlibs</h1>
+
+            {% for prompt in prompts %}
+            <div class="input-group">
+                <label for="{{prompt}}">{{prompt}}</label>
+                <input type="text" id="{{prompt}}" name="{{prompt}}" placeholder="{{prompt}}">
+            </div>
+        {% endfor %}
+            <button type="submit">SUBMIT</button>
+        </div>
+    </div>
+</form>
+</body>
+</html>
