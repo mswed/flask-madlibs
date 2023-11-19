@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="/static/app.css">
-    <title>Home Page</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block title %}Madlibs{% endblock %}
+{% block content %}
 <form class="story-form" action="/story">
     <div class="row">
         <div class="column">
@@ -21,5 +16,4 @@
         </div>
     </div>
 </form>
-</body>
-</html>
+{% endblock %}
