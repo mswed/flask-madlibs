@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}Fill it up!{% endblock %}
+{% block content %}
+<form class="story-form" name="storyForm" action="/story">
+    <div class="row">
+        <div class="column">
+            <h1>Madlibs</h1>
+
+            {% for prompt in prompts %}
+            <div class="input-group">
+                <label for="{{prompt}}">{{prompt}}</label>
+                <input type="text" id="{{prompt}}" name="{{prompt}}" placeholder="{{prompt}}">
+            </div>
+        {% endfor %}
+            <button type="submit">SUBMIT</button>
+        </div>
+    </div>
+</form>
+<script src="/static/app.js"></script>
+{% endblock %}

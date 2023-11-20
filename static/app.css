@@ -1,14 +1,60 @@
+.navbar {
+    background-color: #2D293D;
+    margin: 0em 20em 0em 20em;
+    font-family: 'Comic Neue', cursive;
+    overflow: hidden;
+
+}
+
+.navbar a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+
+}
+
+.navbar a:hover {
+    background-color: #ddd;
+    color: black;
+
+}
+
+body {
+    background-color: #F0B67F;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h1 {
+    font-family: 'Comic Neue', cursive;
+}
+
+button {
+    font-family: 'Comic Neue', cursive;
+    min-height: 70px;
+}
+
 .story-form {
     display: flex;
     flex-direction: column;
     border-radius: 3px;
+    margin: 0em 20em 1em 20em;
     padding: 1em;
+    background-color: #413C58;
+    min-height: 75em;
+
 }
 
-.story-form input {
+.story-form input, .story-form select {
     flex: 6;
     padding: 0.5em;
     margin-bottom: 1em;
+    font-family: 'Comic Neue', cursive;
+
 }
 
 .row {
@@ -26,6 +72,9 @@
 }
 
 .input-group > label {
+    font-family: 'Comic Neue', cursive;
+
     margin-right: 1em;
     padding: 0.5em 0;
 }
+

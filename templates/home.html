@@ -1,19 +1,25 @@
 {% extends 'base.html' %}
 {% block title %}Madlibs{% endblock %}
 {% block content %}
-<form class="story-form" action="/story">
+<form class="story-form" action="/madlib">
     <div class="row">
         <div class="column">
-            <h1>Madlibs</h1>
-
-            {% for prompt in prompts %}
+            <h1>Pick a story!</h1>
             <div class="input-group">
-                <label for="{{prompt}}">{{prompt}}</label>
-                <input type="text" id="{{prompt}}" name="{{prompt}}" placeholder="{{prompt}}">
+                <label for="story">Select a Madlib</label>
+                <select name="story" id="story">
+                    {% for story in stories %}
+                    <option value="{{story}}">{{story}}</option>
+                    {% endfor %}
+                </select>
             </div>
-        {% endfor %}
-            <button type="submit">SUBMIT</button>
+            <button type="submit">Next!</button>
+            <p></p>
+            <img src="https://www.madlibs.com/wp-content/uploads/2016/04/Vacation_Fun_Mad_Libs_book_detail.jpg" alt="madlib picture">
         </div>
+
     </div>
+
+
 </form>
 {% endblock %}
