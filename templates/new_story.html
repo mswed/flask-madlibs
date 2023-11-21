@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Story{% endblock %}
+{% block content %}
+<form class="story-form" action="/create">
+    <h1>New Story</h1>
+    <h2>Type in your new story creating variables like so: {variable}</h2>
+    <textarea name="new-story" id="new-story" cols="30" rows="10"></textarea>
+    <button type="submit">SUBMIT</button>
+</form>
+
+{% endblock %}

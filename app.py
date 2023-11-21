@@ -1,7 +1,9 @@
+import re
 from flask import Flask, render_template, request
 from stories import Story
 
 app = Flask(__name__)
+counter = {}
 
 STORIES = {
     'original': {'words': ["place", "noun", "verb", "adjective", "plural_noun"],
@@ -30,7 +32,6 @@ story = None
 def home_page():
     return render_template('home.html', stories=STORIES.keys())
 
-
 @app.route('/madlib')
 def madlib_maker():
     global story
@@ -45,3 +46,29 @@ def madlib_maker():
 def show_story():
     global story
     return render_template('story.html', text=story.generate(request.args))
+
+
+@app.route('/new')
+def new_story():
+    return render_template('new_story.html')
+
+
+def renumber(match):
+    v = match.group(1)
+    if v in counter.keys():
+        counter[v] += 1
+    else:
+        counter[v] = 1
+    return '{' + match.group(1) + str(counter[v]) + '}'
+
+@app.route('/create')
+def create_story():
+    story_text = request.args.get('new-story')
+    story_text = '''Once upon a time in a long-ago {place}, there lived a large {adjective} and {adjective} and {adjective} {noun}. It loved to {verb} {plural_noun}'''
+    # story_text = '''Once upon a time in a long-ago {place}, there lived a large {adjective} {noun}. It loved to {verb} {plural_noun}'''
+    modified_text = re.sub(r'\{(.*?)\}', renumber, story_text)
+    variables = re.findall(r'\{(.*?)\}', modified_text)
+    print(variables)
+    print(modified_text)
+
+    return 'Created a story'
