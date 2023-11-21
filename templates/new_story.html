@@ -3,8 +3,13 @@
 {% block content %}
 <form class="story-form" action="/create">
     <h1>New Story</h1>
-    <h2>Type in your new story creating variables like so: {variable}</h2>
+
+    <div class="input-group">
+        <label for="story-name">Story Name</label>
+        <input type="text" id="story-name" name="story-name" placeholder="New Story">
+    </div>
     <textarea name="new-story" id="new-story" cols="30" rows="10"></textarea>
+    <p> *Type in your new story creating variables like so: {variable}</p>
     <button type="submit">SUBMIT</button>
 </form>
 
